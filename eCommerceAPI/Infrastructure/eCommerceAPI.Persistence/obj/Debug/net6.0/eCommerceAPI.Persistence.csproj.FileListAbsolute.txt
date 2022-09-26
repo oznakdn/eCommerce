@@ -1,0 +1,12 @@
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Persistence\bin\Debug\net6.0\eCommerceAPI.Persistence.deps.json
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Persistence\bin\Debug\net6.0\eCommerceAPI.Persistence.dll
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Persistence\bin\Debug\net6.0\eCommerceAPI.Persistence.pdb
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Persistence\obj\Debug\net6.0\eCommerceAPI.Persistence.csproj.AssemblyReference.cache
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Persistence\obj\Debug\net6.0\eCommerceAPI.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Persistence\obj\Debug\net6.0\eCommerceAPI.Persistence.AssemblyInfoInputs.cache
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Persistence\obj\Debug\net6.0\eCommerceAPI.Persistence.AssemblyInfo.cs
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Persistence\obj\Debug\net6.0\eCommerceAPI.Persistence.csproj.CoreCompileInputs.cache
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Persistence\obj\Debug\net6.0\eCommerceAPI.Persistence.dll
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Persistence\obj\Debug\net6.0\refint\eCommerceAPI.Persistence.dll
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Persistence\obj\Debug\net6.0\eCommerceAPI.Persistence.pdb
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Persistence\obj\Debug\net6.0\ref\eCommerceAPI.Persistence.dll

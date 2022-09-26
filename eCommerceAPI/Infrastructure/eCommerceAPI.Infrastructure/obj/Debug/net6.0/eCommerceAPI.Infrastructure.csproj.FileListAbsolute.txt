@@ -1,0 +1,12 @@
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Infrastructure\bin\Debug\net6.0\eCommerceAPI.Infrastructure.deps.json
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Infrastructure\bin\Debug\net6.0\eCommerceAPI.Infrastructure.dll
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Infrastructure\bin\Debug\net6.0\eCommerceAPI.Infrastructure.pdb
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Infrastructure\obj\Debug\net6.0\eCommerceAPI.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Infrastructure\obj\Debug\net6.0\eCommerceAPI.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Infrastructure\obj\Debug\net6.0\eCommerceAPI.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Infrastructure\obj\Debug\net6.0\eCommerceAPI.Infrastructure.AssemblyInfo.cs
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Infrastructure\obj\Debug\net6.0\eCommerceAPI.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Infrastructure\obj\Debug\net6.0\eCommerceAPI.Infrastructure.dll
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Infrastructure\obj\Debug\net6.0\refint\eCommerceAPI.Infrastructure.dll
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Infrastructure\obj\Debug\net6.0\eCommerceAPI.Infrastructure.pdb
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Infrastructure\obj\Debug\net6.0\ref\eCommerceAPI.Infrastructure.dll
