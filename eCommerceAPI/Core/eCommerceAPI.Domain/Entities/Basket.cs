@@ -1,4 +1,5 @@
 ﻿using eCommerceAPI.Domain.Entities.Common;
+using eCommerceAPI.Domain.Entities.Identity;
 
 namespace eCommerceAPI.Domain.Entities
 {

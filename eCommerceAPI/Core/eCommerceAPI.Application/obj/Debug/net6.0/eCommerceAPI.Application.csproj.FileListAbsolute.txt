@@ -10,3 +10,6 @@ C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Core\eCommerceAPI.Application\obj\D
 C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Core\eCommerceAPI.Application\obj\Debug\net6.0\refint\eCommerceAPI.Application.dll
 C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Core\eCommerceAPI.Application\obj\Debug\net6.0\eCommerceAPI.Application.pdb
 C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Core\eCommerceAPI.Application\obj\Debug\net6.0\ref\eCommerceAPI.Application.dll
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Core\eCommerceAPI.Application\bin\Debug\net6.0\eCommerceAPI.Domain.dll
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Core\eCommerceAPI.Application\bin\Debug\net6.0\eCommerceAPI.Domain.pdb
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Core\eCommerceAPI.Application\obj\Debug\net6.0\eCommerceAPI.Application.csproj.CopyComplete

@@ -1,0 +1,4 @@
+﻿
+dotnet ef --startup-project C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Presentation\eCommerceAPI.WebApi\eCommerceAPI.WebApi.csproj migrations add Init
+
+dotnet ef --startup-project C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Presentation\eCommerceAPI.WebApi\eCommerceAPI.WebApi.csproj database update

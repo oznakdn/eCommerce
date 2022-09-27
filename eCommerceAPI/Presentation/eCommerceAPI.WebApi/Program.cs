@@ -1,12 +1,21 @@
+using eCommerceAPI.Domain.Entities.Identity;
 using eCommerceAPI.Persistence.Contexts;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
 builder.Services.AddDbContext<eCommerceDbContext>(option => option.UseSqlServer(builder.Configuration.GetConnectionString("eCommerceConnectionString")));
+builder.Services.AddIdentity<AppUser, AppRole>(opt =>
+{
+    opt.Password.RequireNonAlphanumeric = false;
+    opt.Password.RequiredUniqueChars = 0;
+    opt.Password.RequiredLength = 6;
+    opt.Password.RequireLowercase= true;
+    opt.Password.RequireUppercase = true;
+    opt.Password.RequireDigit = true;
+}).AddEntityFrameworkStores<eCommerceDbContext>();
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

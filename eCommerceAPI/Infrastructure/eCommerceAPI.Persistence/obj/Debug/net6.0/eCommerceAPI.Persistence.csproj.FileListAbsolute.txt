@@ -10,3 +10,10 @@ C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Persist
 C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Persistence\obj\Debug\net6.0\refint\eCommerceAPI.Persistence.dll
 C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Persistence\obj\Debug\net6.0\eCommerceAPI.Persistence.pdb
 C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Persistence\obj\Debug\net6.0\ref\eCommerceAPI.Persistence.dll
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Persistence\bin\Debug\net6.0\eCommerceAPI.Persistence.runtimeconfig.json
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Persistence\bin\Debug\net6.0\eCommerceAPI.Domain.dll
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Persistence\bin\Debug\net6.0\eCommerceAPI.Domain.pdb
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Persistence\obj\Debug\net6.0\eCommerceAPI.Persistence.csproj.CopyComplete
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Persistence\obj\Debug\net6.0\eCommerceAPI.Persistence.genruntimeconfig.cache
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Persistence\bin\Debug\net6.0\eCommerceAPI.Application.dll
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Persistence\bin\Debug\net6.0\eCommerceAPI.Application.pdb
