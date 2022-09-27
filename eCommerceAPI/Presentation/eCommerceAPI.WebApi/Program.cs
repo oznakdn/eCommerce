@@ -1,5 +1,6 @@
 using eCommerceAPI.Domain.Entities.Identity;
 using eCommerceAPI.Persistence.Contexts;
+using eCommerceAPI.Persistence.Extension;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +16,7 @@ builder.Services.AddIdentity<AppUser, AppRole>(opt =>
     opt.Password.RequireUppercase = true;
     opt.Password.RequireDigit = true;
 }).AddEntityFrameworkStores<eCommerceDbContext>();
+builder.Services.AddPersistenceContainer();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

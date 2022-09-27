@@ -11,7 +11,7 @@ namespace eCommerceAPI.Persistence.Extension
 {
     public static class ServiceRegistration
     {
-        public static IServiceCollection AddContainer(this IServiceCollection services)
+        public static IServiceCollection AddPersistenceContainer(this IServiceCollection services)
         {
 
             services.AddScoped<IUnitOfWork, eCommerceAPI.Persistence.UnitOfWork.UnitOfWork>();
