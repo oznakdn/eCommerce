@@ -10,6 +10,5 @@ namespace eCommerceAPI.Application.Repositories
         Task<bool> DeleteAsync(string id);
         bool Delete(T entity);
         bool DeleteRange(List<T> entities);
-        Task<int> SaveAsync();
     }
 }
