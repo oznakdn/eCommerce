@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
 
-declare var alertify: any;
+
+declare var alertify:any;
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-export class AlertifyService {
-  constructor() {}
+export class AlertifyMessageService {
 
-  getMessage(message: string, messageType: MessageType, positionType:PositionType,delay:number) {
+  constructor() { }
+  getAlertfyMessage(message: string, messageType: MessageType, positionType:PositionType,delay:number) {
     alertify.set('notifier','delay', delay);
     alertify.set('notifier','position',positionType);
     alertify[messageType](message,messageType);
   }
-
 }
 
 export enum MessageType {

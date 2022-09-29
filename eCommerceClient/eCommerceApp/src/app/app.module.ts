@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserInterfaceModule } from './user-interface/user-interface.module';
+import { GeneralModule } from './general/general.module';
 
 
 @NgModule({
@@ -16,7 +17,7 @@ import { UserInterfaceModule } from './user-interface/user-interface.module';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    AdminInterfaceModule,UserInterfaceModule
+    AdminInterfaceModule,UserInterfaceModule,GeneralModule
 
   ],
   providers: [],

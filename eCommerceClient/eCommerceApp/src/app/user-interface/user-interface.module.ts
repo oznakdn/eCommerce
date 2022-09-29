@@ -7,17 +7,12 @@ import { LayoutModule } from './layout/layout.module';
 
 
 
-
-
 @NgModule({
   declarations: [
   ],
   imports: [
-    CommonModule,
-    BasketsModule,
-    HomeModule,
-    ProductsModule,
-    LayoutModule
+    CommonModule,BasketsModule,HomeModule,ProductsModule,LayoutModule
+
   ],
   exports:[
     LayoutModule
