@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SpinnerService } from 'src/app/general/spinner.service';
 import { MessageType, PositionType, ToastrMessageService } from 'src/app/general/toastr-message.service';
 
 
@@ -9,10 +10,11 @@ import { MessageType, PositionType, ToastrMessageService } from 'src/app/general
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private toastrService:ToastrMessageService) { }
+  constructor(private toastrService:ToastrMessageService, private spinnerService:SpinnerService) { }
 
   ngOnInit(): void {
     this.toastrService.getToastrMessage("Toastr","Information",MessageType.Info,PositionType.TopRight,3000);
+    this.spinnerService.getSpinner(1000);
   }
 
 }

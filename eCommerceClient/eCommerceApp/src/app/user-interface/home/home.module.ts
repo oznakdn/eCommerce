@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './components/home/home.component';
 import { RouterModule } from '@angular/router';
 import { LayoutModule } from '../layout/layout.module';
+import { NgxSpinnerModule } from 'ngx-spinner';
+
 
 
 
@@ -17,7 +19,8 @@ import { LayoutModule } from '../layout/layout.module';
     RouterModule.forChild([
       {path:'', component:HomeComponent}
     ]),
-    LayoutModule
+    LayoutModule,
+    NgxSpinnerModule
   ]
 })
 export class HomeModule { }
