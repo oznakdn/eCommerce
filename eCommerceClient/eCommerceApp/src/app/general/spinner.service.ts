@@ -9,6 +9,7 @@ export class SpinnerService {
   constructor(private spinnerService:NgxSpinnerService) { }
 
   getSpinner(timeOut:number){
+
     this.spinnerService.show();
     setTimeout(() => {
       /** spinner ends after 5 seconds */
