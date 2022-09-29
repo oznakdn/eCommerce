@@ -19,27 +19,27 @@ namespace eCommerceAPI.Persistence.UnitOfWork
             _context = context;
         }
 
-        private CustomerReadRepository CustomerRead;
-        private CustomerWriteRepository CustomerWrite;
+        private CustomerReadRepository _CustomerRead;
+        private CustomerWriteRepository _CustomerWrite;
 
-        private OrderReadRepository OrderRead;
-        private OrderWriteRepository OrderWrite;
+        private OrderReadRepository _OrderRead;
+        private OrderWriteRepository _OrderWrite;
 
-        private ProductReadRepository ProductRead;
-        private ProductWriteRepository ProductWrite;
+        private ProductReadRepository _ProductRead;
+        private ProductWriteRepository _ProductWrite;
 
 
-        public ICustomerReadRepository customerRead => CustomerRead ?? (CustomerRead = new CustomerReadRepository(_context));
+        public ICustomerReadRepository customerRead => _CustomerRead ?? (_CustomerRead = new CustomerReadRepository(_context));
 
-        public ICustomerWriteRepository customerWrite => CustomerWrite ?? (CustomerWrite = new CustomerWriteRepository(_context));
+        public ICustomerWriteRepository customerWrite => _CustomerWrite ?? (_CustomerWrite = new CustomerWriteRepository(_context));
 
-        public IOrderReadRepository orderRead => OrderRead ?? (OrderRead = new OrderReadRepository(_context));
+        public IOrderReadRepository orderRead => _OrderRead ?? (_OrderRead = new OrderReadRepository(_context));
 
-        public IOrderWriteRepository orderWrite => OrderWrite ?? (OrderWrite = new OrderWriteRepository(_context));
+        public IOrderWriteRepository orderWrite => _OrderWrite ?? (_OrderWrite = new OrderWriteRepository(_context));
 
-        public IProductReadRepository productRead => ProductRead ?? (ProductRead = new ProductReadRepository(_context));
+        public IProductReadRepository productRead => _ProductRead ?? (_ProductRead = new ProductReadRepository(_context));
 
-        public IProductWriteRepository productWrite => ProductWrite ?? (ProductWrite = new ProductWriteRepository(_context));
+        public IProductWriteRepository productWrite => _ProductWrite ?? (_ProductWrite = new ProductWriteRepository(_context));
 
         public async ValueTask DisposeAsync()
         {

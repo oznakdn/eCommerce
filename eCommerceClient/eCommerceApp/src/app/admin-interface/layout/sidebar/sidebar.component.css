@@ -1,0 +1,8 @@
+.sideList a{
+  text-decoration: none;
+  border: 2px solid black;
+  text-align: center;
+  height: 30px;
+  width: 150px;
+  padding-top: 4px;
+}
