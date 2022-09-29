@@ -16,7 +16,15 @@ builder.Services.AddIdentity<AppUser, AppRole>(opt =>
     opt.Password.RequireUppercase = true;
     opt.Password.RequireDigit = true;
 }).AddEntityFrameworkStores<eCommerceDbContext>();
+
 builder.Services.AddPersistenceContainer();
+
+builder.Services.AddCors(option => option.AddPolicy("defaultCors", policy =>
+{
+    policy.WithOrigins("http://localhost:4200", "https://localhost:4200");
+    policy.AllowAnyHeader();
+    policy.AllowAnyMethod();
+}));
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -31,6 +39,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("defaultCors");
 
 app.UseAuthorization();
 
