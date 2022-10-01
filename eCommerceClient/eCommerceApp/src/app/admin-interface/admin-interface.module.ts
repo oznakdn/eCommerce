@@ -5,18 +5,23 @@ import { ProductsModule } from './products/products.module';
 import { OrdersModule } from './orders/orders.module';
 import { CustomersModule } from './customers/customers.module';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { HttpClientService } from '../general/http-client.service';
 
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+  ],
   imports: [
     CommonModule,
     LayoutModule,OrdersModule,CustomersModule,DashboardModule,ProductsModule
   ],
   exports:[
     LayoutModule
+  ],
+  providers:[
+    HttpClientService
   ]
 })
 export class AdminInterfaceModule { }
