@@ -14,8 +14,8 @@ export class DashboardComponent implements OnInit {
   constructor(private alertifyService:AlertifyMessageService, private spinnerService:SpinnerService) { }
 
   ngOnInit(): void {
-    this.alertifyService.getAlertfyMessage("Alertify",MessageType.Success,PositionType.BottomRight,2000);
-    this.spinnerService.getSpinner(1000);
+    // this.alertifyService.getAlertfyMessage("Alertify",MessageType.Success,PositionType.BottomRight,2000);
+    // this.spinnerService.getSpinner(1000);
   }
 
 }

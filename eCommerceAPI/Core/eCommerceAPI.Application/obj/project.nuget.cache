@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "CLAtHNc0WCNCHkCVurFQeLJuep6VFSC0qssDmMpdEfUmp5XyeP01g+DECJFEGCzdaTDv5uYCQrVA7zvc1xM00g==",
+  "dgSpecHash": "O3AElvnzimO48+DL7E7H2UaiCMv2JIUbKfe4DnCXOyOzrixT4PnJkXEHJAy+dX8tyoijjzrBOhd6yudSnhfVmw==",
   "success": true,
   "projectFilePath": "C:\\Users\\USER\\Desktop\\eCommerce\\eCommerceAPI\\Core\\eCommerceAPI.Application\\eCommerceAPI.Application.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\USER\\.nuget\\packages\\fluentvalidation\\11.2.2\\fluentvalidation.11.2.2.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.2.2\\fluentvalidation.dependencyinjectionextensions.11.2.2.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.aspnetcore.authentication.cookies\\2.2.0\\microsoft.aspnetcore.authentication.cookies.2.2.0.nupkg.sha512",

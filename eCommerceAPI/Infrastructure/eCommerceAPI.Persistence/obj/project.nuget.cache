@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "jAeO/h8nx1NUIbdhivwRF/hOVaOYvJxhBAhbCkaCBPn+OjyIkYrx7cAmx+4euSEWTg8vTbhBX3HYDiG6EtMc0g==",
+  "dgSpecHash": "qHW+U4QHK13cPwB0ommtES8Io/uA1cNZy0MVFUhlybl2HFQua4unOy6wIpTdf9hzy/S1TnuOjE+FV6CgKTQ7fg==",
   "success": true,
   "projectFilePath": "C:\\Users\\USER\\Desktop\\eCommerce\\eCommerceAPI\\Infrastructure\\eCommerceAPI.Persistence\\eCommerceAPI.Persistence.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\USER\\.nuget\\packages\\fluentvalidation\\11.2.2\\fluentvalidation.11.2.2.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.2.2\\fluentvalidation.dependencyinjectionextensions.11.2.2.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

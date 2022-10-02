@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { observable, Observable } from 'rxjs';
 import { HttpClientService } from 'src/app/general/http-client.service';
-import { CreateProductModel } from '../models/create-product-model';
+
 
 
 @Injectable({

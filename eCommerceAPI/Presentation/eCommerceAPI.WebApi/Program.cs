@@ -1,33 +1,22 @@
-using eCommerceAPI.Domain.Entities.Identity;
-using eCommerceAPI.Persistence.Contexts;
+using eCommerceAPI.Application.Extensions;
+using eCommerceAPI.Infrastructure.Filters;
 using eCommerceAPI.Persistence.Extension;
-using Microsoft.EntityFrameworkCore;
+using eCommerceAPI.WebApi.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
-builder.Services.AddDbContext<eCommerceDbContext>(option => option.UseSqlServer(builder.Configuration.GetConnectionString("eCommerceConnectionString")));
-builder.Services.AddIdentity<AppUser, AppRole>(opt =>
+builder.Services.AddControllers(options =>
 {
-    opt.Password.RequireNonAlphanumeric = false;
-    opt.Password.RequiredUniqueChars = 0;
-    opt.Password.RequiredLength = 6;
-    opt.Password.RequireLowercase= true;
-    opt.Password.RequireUppercase = true;
-    opt.Password.RequireDigit = true;
-}).AddEntityFrameworkStores<eCommerceDbContext>();
+    options.Filters.Add<ValidationFilter>();
 
-builder.Services.AddPersistenceContainer();
+}).ConfigureApiBehaviorOptions(options =>options.SuppressModelStateInvalidFilter = true);
 
-builder.Services.AddCors(option => option.AddPolicy("defaultCors", policy =>
-{
-    policy.WithOrigins("http://localhost:4200", "https://localhost:4200");
-    policy.AllowAnyHeader();
-    policy.AllowAnyMethod();
-}));
-
+builder.Services.AddPresentationService(builder.Configuration);
+builder.Services.AddPersistenceService();
+builder.Services.AddApplicationService();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 
 var app = builder.Build();
 

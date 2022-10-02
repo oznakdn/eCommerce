@@ -1,0 +1,31 @@
+table {
+  width: 100%;
+}
+
+th{
+  color: red;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 5%;
+}
+
+.example-container {
+  width: 99%;
+  height: 700px;
+  margin: 10px;
+  border: 1px solid #555;
+}
+
+.createForm-container{
+  width:20%;
+}
+
+.listProduct-container{
+  width:80%;
+}

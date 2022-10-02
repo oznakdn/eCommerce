@@ -1,7 +1,4 @@
-import { Component, ViewChild , AfterViewInit} from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
+import { Component, OnInit} from '@angular/core';
 import { CreateProductModel } from '../../models/create-product-model';
 import { GetProductModel } from '../../models/get-product-model';
 import { UpdateProductModel } from '../../models/update-product-model';
@@ -12,41 +9,17 @@ import { ProductService } from '../../services/product.service';
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
 })
-export class ProductComponent implements AfterViewInit {
+export class ProductComponent implements  OnInit {
 
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
 
-  //products:GetProductModel[]=[];
+
+
   product:GetProductModel;
   createProductModel:CreateProductModel=new CreateProductModel();
   updateProductModel:UpdateProductModel = new UpdateProductModel();
 
-
-  displayedColumns: string[] = ['Id', 'Product Name', 'Stock', 'Price'];
-  dataSource: MatTableDataSource<GetProductModel>;
-
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
-
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
-  }
-
-
-  constructor(private productService:ProductService) {
-
-
-
-  }
+  constructor(private productService:ProductService) {}
 
 
 
@@ -79,7 +52,6 @@ export class ProductComponent implements AfterViewInit {
   getProductsList(){
       this.productService.getProducts<GetProductModel[]>().subscribe(res=>{
       console.log(res);
-      this.dataSource = new MatTableDataSource(res);
       //this.products = res;
     });
   }

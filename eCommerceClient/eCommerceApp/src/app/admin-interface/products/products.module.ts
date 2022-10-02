@@ -7,13 +7,19 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import { CreateProductComponent } from './components/create-product/create-product.component';
+import { ListProductComponent } from './components/list-product/list-product.component';
 
 
 
 
 @NgModule({
   declarations: [
-    ProductComponent
+    ProductComponent,
+    CreateProductComponent,
+    ListProductComponent
 
   ],
   imports: [
@@ -25,7 +31,9 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatPaginatorModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatIconModule,
+    MatButtonModule
   ]
 })
 export class ProductsModule { }

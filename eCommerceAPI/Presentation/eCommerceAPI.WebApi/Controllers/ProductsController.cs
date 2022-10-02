@@ -63,6 +63,10 @@ namespace eCommerceAPI.WebApi.Controllers
                 Stock = model.Stock,
                 Price = model.Price
             };
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState.Values.Select(x=>x.Errors.ToArray()));
+            }
             await unitOfWork.productWrite.CreateAsync(product);
             await unitOfWork.SaveAsync();
             return Created("", product);
@@ -72,10 +76,10 @@ namespace eCommerceAPI.WebApi.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateProduct([FromBody] UpdateProductViewModel updateProductView)
         {
-            var productExist = await unitOfWork.productRead.GetAsync(true,p=>p.Id ==Guid.Parse(updateProductView.Id));
+            var productExist = await unitOfWork.productRead.GetAsync(true, p => p.Id == Guid.Parse(updateProductView.Id));
             if (productExist is null) return NotFound();
 
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 productExist.ProductName = updateProductView.ProductName;
                 productExist.Stock = updateProductView.Stock;
@@ -90,10 +94,10 @@ namespace eCommerceAPI.WebApi.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult>DeleteProduct(string id)
+        public async Task<IActionResult> DeleteProduct(string id)
         {
             var product = await unitOfWork.productRead.GetByIdAsync(false, id);
-            if(product == null) return NotFound();
+            if (product == null) return NotFound();
 
             unitOfWork.productWrite.Delete(product);
             await unitOfWork.SaveAsync();
