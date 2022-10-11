@@ -1,6 +1,7 @@
 ﻿using eCommerceAPI.Application.UnitOfWork;
 using eCommerceAPI.Application.ViewModels.ProductViewModels;
 using eCommerceAPI.Domain.Entities;
+using eCommerceAPI.Persistence.UnitOfWork;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,19 +11,26 @@ namespace eCommerceAPI.WebApi.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private readonly IUnitOfWork unitOfWork;
+        private readonly ICommandUnitOfWork commandUnitOfWork;
+        private readonly IQueryUnitOfWork queryUnitOfWork;
 
-        public ProductsController(IUnitOfWork unitOfWork)
+
+        public ProductsController(ICommandUnitOfWork commandUnitOfWork, IQueryUnitOfWork queryUnitOfWork)
         {
-            this.unitOfWork = unitOfWork;
+            this.commandUnitOfWork = commandUnitOfWork;
+            this.queryUnitOfWork = queryUnitOfWork;
         }
+
+
+
+
 
 
         [HttpGet]
         [ActionName("GetProducts")]
         public async Task<IActionResult> GetProducts()
         {
-            var products = unitOfWork.productRead.GetAll(false);
+            var products = queryUnitOfWork.productRead.GetAll(false);
             var result = await products.Select(product => new GetProductsViewModel
             {
                 Id = product.Id.ToString(),
@@ -39,7 +47,7 @@ namespace eCommerceAPI.WebApi.Controllers
         [ActionName("GetProductById")]
         public async Task<IActionResult> GetProductById(string id)
         {
-            var product = await unitOfWork.productRead.GetByIdAsync(false, id);
+            var product = await queryUnitOfWork.productRead.GetByIdAsync(false, id);
             if (product is null) return NotFound();
             return Ok(product);
         }
@@ -67,8 +75,8 @@ namespace eCommerceAPI.WebApi.Controllers
             {
                 return BadRequest(ModelState.Values.Select(x=>x.Errors.ToArray()));
             }
-            await unitOfWork.productWrite.CreateAsync(product);
-            await unitOfWork.SaveAsync();
+            await commandUnitOfWork.productWrite.CreateAsync(product);
+            await commandUnitOfWork.SaveAsync();
             return Created("", product);
         }
 
@@ -76,7 +84,7 @@ namespace eCommerceAPI.WebApi.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateProduct([FromBody] UpdateProductViewModel updateProductView)
         {
-            var productExist = await unitOfWork.productRead.GetAsync(true, p => p.Id == Guid.Parse(updateProductView.Id));
+            var productExist = await queryUnitOfWork.productRead.GetAsync(true, p => p.Id == Guid.Parse(updateProductView.Id));
             if (productExist is null) return NotFound();
 
             if (ModelState.IsValid)
@@ -85,8 +93,8 @@ namespace eCommerceAPI.WebApi.Controllers
                 productExist.Stock = updateProductView.Stock;
                 productExist.Price = updateProductView.Price;
 
-                unitOfWork.productWrite.Update(productExist);
-                await unitOfWork.SaveAsync();
+                commandUnitOfWork.productWrite.Update(productExist);
+                await commandUnitOfWork.SaveAsync();
                 return NoContent();
             }
 
@@ -96,11 +104,11 @@ namespace eCommerceAPI.WebApi.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProduct(string id)
         {
-            var product = await unitOfWork.productRead.GetByIdAsync(false, id);
+            var product = await queryUnitOfWork.productRead.GetByIdAsync(false, id);
             if (product == null) return NotFound();
 
-            unitOfWork.productWrite.Delete(product);
-            await unitOfWork.SaveAsync();
+            commandUnitOfWork.productWrite.Delete(product);
+            await commandUnitOfWork.SaveAsync();
             return NoContent();
         }
     }
