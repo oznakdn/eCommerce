@@ -5,6 +5,7 @@ using eCommerceAPI.Application.UnitOfWork;
 using eCommerceAPI.Persistence.Repositories.CustomerRepo;
 using eCommerceAPI.Persistence.Repositories.OrderRepo;
 using eCommerceAPI.Persistence.Repositories.ProductRepo;
+using eCommerceAPI.Persistence.UnitOfWork;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace eCommerceAPI.Persistence.Extension
@@ -15,7 +16,9 @@ namespace eCommerceAPI.Persistence.Extension
         {
 
             // IOC containers
-            services.AddScoped<IUnitOfWork, eCommerceAPI.Persistence.UnitOfWork.UnitOfWork>();
+            services.AddScoped<IQueryUnitOfWork,QueryUnitOfWork>();
+            services.AddScoped<ICommandUnitOfWork, CommandUnitOfWork>();
+
 
             services.AddScoped<ICustomerReadRepository, CustomerReadRepository>();
             services.AddScoped<ICustomerWriteRepository, CustomerWriteRepository>();
