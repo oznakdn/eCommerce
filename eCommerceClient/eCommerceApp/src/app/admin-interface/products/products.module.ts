@@ -34,6 +34,9 @@ import { ListProductComponent } from './components/list-product/list-product.com
     MatSidenavModule,
     MatIconModule,
     MatButtonModule
+  ],
+  exports:[
+    ProductComponent
   ]
 })
 export class ProductsModule { }

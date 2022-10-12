@@ -1,5 +1,8 @@
+
 import { Injectable } from '@angular/core';
+import { AlertifyMessageService, MessageType, PositionType } from 'src/app/general/alertify-message.service';
 import { HttpClientService } from 'src/app/general/http-client.service';
+
 
 
 
@@ -9,10 +12,10 @@ import { HttpClientService } from 'src/app/general/http-client.service';
 export class ProductService {
 
 
-  constructor(private httpClientService:HttpClientService) { }
+  constructor(private httpClientService:HttpClientService, private alertfyService:AlertifyMessageService) { }
 
 
-  getProducts<GetProductModel>(){
+    getProducts<GetProductModel>(){
     return this.httpClientService.get<GetProductModel>({
       controller:'products'
     }).pipe();
@@ -27,7 +30,7 @@ export class ProductService {
   createProduct<CreateProductModel>(model:CreateProductModel){
     return this.httpClientService.post<CreateProductModel>({
       controller:'products',
-    },model).pipe();
+    },model);
   }
 
   updateProduct<UpdateProductModel>(model:UpdateProductModel){

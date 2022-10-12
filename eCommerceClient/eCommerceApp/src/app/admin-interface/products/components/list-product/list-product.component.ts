@@ -2,8 +2,11 @@ import { Component, OnInit, ViewChild} from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { AlertifyMessageService, MessageType, PositionType } from 'src/app/general/alertify-message.service';
 import { GetProductModel } from '../../models/get-product-model';
 import { ProductService } from '../../services/product.service';
+
+
 
 @Component({
   selector: 'app-list-product',
@@ -15,7 +18,7 @@ export class ListProductComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns: string[] = ['Id', 'Product Name', 'Stock', 'Price'];
+  displayedColumns: string[] = ['Id', 'Product Name', 'Stock', 'Price','Delete','Update'];
   dataSource: MatTableDataSource<GetProductModel>;
 
 
@@ -28,25 +31,31 @@ export class ListProductComponent implements OnInit {
     }
   }
 
-  constructor(private productService:ProductService) { }
+  constructor(private productService:ProductService, private alertifyService:AlertifyMessageService ) { }
 
 
-  async ngOnInit(){
-   await this.getProductsList();
-  }
+    ngOnInit(){
+    this.getProductsList();
+   }
 
-  async getProductsList(){
+    getProductsList(){
     this.productService.getProducts<GetProductModel[]>().subscribe(res=>{
-    console.log(res);
-    this.dataSource = new MatTableDataSource<GetProductModel>(res);
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  });
-}
+     console.log(res);
+     this.dataSource = new MatTableDataSource<GetProductModel>(res);
+     this.dataSource.paginator = this.paginator;
+     this.dataSource.sort = this.sort;
+   });
+ }
 
-async pageChanged(){
-  await this.getProductsList();
-}
+  deleteProduct(id:string){
+  this.productService.deleteProduct(id);
+  this.getProductsList();
+ }
+
+ pageChanged(){
+    this.getProductsList();
+ }
+
 
 
 }

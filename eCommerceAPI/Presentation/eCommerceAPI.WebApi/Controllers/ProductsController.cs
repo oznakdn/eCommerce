@@ -47,9 +47,9 @@ namespace eCommerceAPI.WebApi.Controllers
                 return BadRequest(ModelState.Values.Select(x=>x.Errors.ToArray()));
             }
             var response = await _mediator.Send(request);
-            return Created("",response.Message);
+            return Ok();
+            //return Ok(response.Message);
         }
-
 
         [HttpPut]
         public async Task<IActionResult> UpdateProduct([FromBody] UpdateProductCommandRequest request)
@@ -57,7 +57,7 @@ namespace eCommerceAPI.WebApi.Controllers
             if (ModelState.IsValid)
             {
                 var response =await _mediator.Send(request);
-                return Ok(response.Message);
+                return CreatedAtAction(nameof(GetProductById), new { id = request.Id }, request);
             }
             return BadRequest();
         }
@@ -65,8 +65,9 @@ namespace eCommerceAPI.WebApi.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProduct(string id)
         {
-            var request =await _mediator.Send(new DeleteProductCommandRequest(id));
-            return Ok(request.Message);
+            await _mediator.Send(new DeleteProductCommandRequest(id));
+            return NoContent();
+            //return Ok(request.Message);
         }
     }
 }
