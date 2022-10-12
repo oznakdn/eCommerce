@@ -1,4 +1,5 @@
 using eCommerceAPI.Application.Extensions;
+using eCommerceAPI.Infrastructure.ExceptionHandling;
 using eCommerceAPI.Infrastructure.Filters;
 using eCommerceAPI.Persistence.Extension;
 using eCommerceAPI.WebApi.Extensions;
@@ -34,5 +35,7 @@ app.UseCors("defaultCors");
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseMiddleware<GlobalExceptionHandling>();
 
 app.Run();
