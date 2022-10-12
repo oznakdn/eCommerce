@@ -1,9 +1,10 @@
-﻿using eCommerceAPI.Application.UnitOfWork;
-using eCommerceAPI.Application.ViewModels.ProductViewModels;
-using eCommerceAPI.Domain.Entities;
-using eCommerceAPI.Persistence.UnitOfWork;
+﻿using eCommerceAPI.Application.Features.Commands.ProductCommands.AddProduct;
+using eCommerceAPI.Application.Features.Commands.ProductCommands.DeleteProduct;
+using eCommerceAPI.Application.Features.Commands.ProductCommands.UpdateProduct;
+using eCommerceAPI.Application.Features.Queries.ProductQueries.GetAllProducts;
+using eCommerceAPI.Application.Features.Queries.ProductQueries.GetProductById;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace eCommerceAPI.WebApi.Controllers
 {
@@ -11,18 +12,14 @@ namespace eCommerceAPI.WebApi.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private readonly ICommandUnitOfWork commandUnitOfWork;
-        private readonly IQueryUnitOfWork queryUnitOfWork;
+        private readonly IMediator _mediator;
 
 
-        public ProductsController(ICommandUnitOfWork commandUnitOfWork, IQueryUnitOfWork queryUnitOfWork)
+        public ProductsController(IMediator mediator)
         {
-            this.commandUnitOfWork = commandUnitOfWork;
-            this.queryUnitOfWork = queryUnitOfWork;
+          
+            _mediator = mediator;
         }
-
-
-
 
 
 
@@ -30,86 +27,46 @@ namespace eCommerceAPI.WebApi.Controllers
         [ActionName("GetProducts")]
         public async Task<IActionResult> GetProducts()
         {
-            var products = queryUnitOfWork.productRead.GetAll(false);
-            var result = await products.Select(product => new GetProductsViewModel
-            {
-                Id = product.Id.ToString(),
-                ProductName = product.ProductName,
-                Stock = product.Stock,
-                Price = product.Price
-
-            }).ToListAsync();
-
-            return Ok(result);
+            var products = await _mediator.Send(new GetAllProductsQueryRequest());
+            return Ok(products);
         }
 
         [HttpGet("{id}")]
         [ActionName("GetProductById")]
         public async Task<IActionResult> GetProductById(string id)
         {
-            var product = await queryUnitOfWork.productRead.GetByIdAsync(false, id);
-            if (product is null) return NotFound();
-            return Ok(product);
+            var response = await _mediator.Send(new GetProductByIdQueryRequest(id));
+            return Ok(response);
         }
 
-        //[HttpGet("{productName}")]
-        //[ActionName("GetProductByName")]
-        //public async Task<IActionResult> GetProductByName(string productName)
-        //{
-        //    var product = await unitOfWork.productRead.GetAsync(false, p => p.ProductName.ToLower() == productName.ToLower() || p.ProductName.ToUpper() == productName.ToUpper());
-        //    if (product is null) return NotFound();
-        //    return Ok(product);
-        //}
-
-
         [HttpPost]
-        public async Task<IActionResult> AddProduct([FromBody] CreateProductViewModel model)
+        public async Task<IActionResult> AddProduct([FromBody] AddProductCommandRequest request)
         {
-            var product = new Product
-            {
-                ProductName = model.ProductName,
-                Stock = model.Stock,
-                Price = model.Price
-            };
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState.Values.Select(x=>x.Errors.ToArray()));
             }
-            await commandUnitOfWork.productWrite.CreateAsync(product);
-            await commandUnitOfWork.SaveAsync();
-            return Created("", product);
+            var response = await _mediator.Send(request);
+            return Created("",response.Message);
         }
 
 
         [HttpPut]
-        public async Task<IActionResult> UpdateProduct([FromBody] UpdateProductViewModel updateProductView)
+        public async Task<IActionResult> UpdateProduct([FromBody] UpdateProductCommandRequest request)
         {
-            var productExist = await queryUnitOfWork.productRead.GetAsync(true, p => p.Id == Guid.Parse(updateProductView.Id));
-            if (productExist is null) return NotFound();
-
             if (ModelState.IsValid)
             {
-                productExist.ProductName = updateProductView.ProductName;
-                productExist.Stock = updateProductView.Stock;
-                productExist.Price = updateProductView.Price;
-
-                commandUnitOfWork.productWrite.Update(productExist);
-                await commandUnitOfWork.SaveAsync();
-                return NoContent();
+                var response =await _mediator.Send(request);
+                return Ok(response.Message);
             }
-
             return BadRequest();
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProduct(string id)
         {
-            var product = await queryUnitOfWork.productRead.GetByIdAsync(false, id);
-            if (product == null) return NotFound();
-
-            commandUnitOfWork.productWrite.Delete(product);
-            await commandUnitOfWork.SaveAsync();
-            return NoContent();
+            var request =await _mediator.Send(new DeleteProductCommandRequest(id));
+            return Ok(request.Message);
         }
     }
 }
