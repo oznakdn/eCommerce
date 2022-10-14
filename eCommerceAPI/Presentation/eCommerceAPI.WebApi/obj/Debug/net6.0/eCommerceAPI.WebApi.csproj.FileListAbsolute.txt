@@ -80,3 +80,4 @@ C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Presentation\eCommerceAPI.WebApi\bi
 C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Presentation\eCommerceAPI.WebApi\bin\Debug\net6.0\MediatR.dll
 C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Presentation\eCommerceAPI.WebApi\bin\Debug\net6.0\MediatR.Contracts.dll
 C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Presentation\eCommerceAPI.WebApi\bin\Debug\net6.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Presentation\eCommerceAPI.WebApi\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

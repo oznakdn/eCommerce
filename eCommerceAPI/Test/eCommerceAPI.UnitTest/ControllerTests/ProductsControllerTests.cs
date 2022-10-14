@@ -46,7 +46,7 @@ namespace eCommerceAPI.UnitTest.ControllerTests
         {
             _mediatorMock.Setup(x => x.Send(new GetAllProductsQueryRequest(), new CancellationToken())).ReturnsAsync(_products);
             var result = await _productsController.GetProducts();
-
+     
             var returnType = Assert.IsType<OkObjectResult>(result);
             Assert.Equal(200, returnType.StatusCode);
             Assert.NotNull(result);
