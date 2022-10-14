@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using FluentValidation;
 using MediatR;
 using System.Reflection;
+using eCommerceAPI.Application.Abstractions.Token;
 
 namespace eCommerceAPI.Application.Extensions
 {
@@ -12,7 +13,11 @@ namespace eCommerceAPI.Application.Extensions
         {
             // Fluent Validation conf.
             services.AddValidatorsFromAssemblyContaining<CreateProductValidator>();
+            // MediatR conf.
             services.AddMediatR(Assembly.GetExecutingAssembly());
+
+            // Ioc containers
+            services.AddScoped<ITokenHandler, ITokenHandler>();
             return services;
         }
     }

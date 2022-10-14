@@ -17,4 +17,8 @@
     <ProjectReference Include="..\eCommerceAPI.Domain\eCommerceAPI.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Queries\AppUserQueries\" />
+  </ItemGroup>
+
 </Project>

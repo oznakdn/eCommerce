@@ -10,3 +10,8 @@ C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Infrast
 C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Infrastructure\obj\Debug\net6.0\refint\eCommerceAPI.Infrastructure.dll
 C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Infrastructure\obj\Debug\net6.0\eCommerceAPI.Infrastructure.pdb
 C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Infrastructure\obj\Debug\net6.0\ref\eCommerceAPI.Infrastructure.dll
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Infrastructure\bin\Debug\net6.0\eCommerceAPI.Application.dll
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Infrastructure\bin\Debug\net6.0\eCommerceAPI.Domain.dll
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Infrastructure\bin\Debug\net6.0\eCommerceAPI.Application.pdb
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Infrastructure\bin\Debug\net6.0\eCommerceAPI.Domain.pdb
+C:\Users\USER\Desktop\eCommerce\eCommerceAPI\Infrastructure\eCommerceAPI.Infrastructure\obj\Debug\net6.0\eCommerceAPI.Infrastructure.csproj.CopyComplete

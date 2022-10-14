@@ -1,7 +1,9 @@
 ﻿using eCommerceAPI.Domain.Entities.Identity;
 using eCommerceAPI.Persistence.Contexts;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace eCommerceAPI.WebApi.Extensions
 {
@@ -30,6 +32,22 @@ namespace eCommerceAPI.WebApi.Extensions
                 policy.AllowAnyHeader();
                 policy.AllowAnyMethod();
             }));
+
+            // Jwt configuration
+            services.AddAuthentication("Admin").AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new()
+                {
+                    ValidateAudience = true,
+                    ValidateIssuer = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+
+                    ValidAudience = configuration["JwtToken:Audience"],
+                    ValidIssuer = configuration["JwtToken:Issuer"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtToken:SecurityKey"]))
+                };
+            });
         }
 
       
