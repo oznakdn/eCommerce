@@ -1,5 +1,6 @@
 using eCommerceAPI.Application.Extensions;
 using eCommerceAPI.Infrastructure.ExceptionHandling;
+using eCommerceAPI.Infrastructure.Extensions;
 using eCommerceAPI.Infrastructure.Filters;
 using eCommerceAPI.Persistence.Extension;
 using eCommerceAPI.WebApi.Extensions;
@@ -15,6 +16,7 @@ builder.Services.AddControllers(options =>
 builder.Services.AddPresentationService(builder.Configuration);
 builder.Services.AddPersistenceService();
 builder.Services.AddApplicationService();
+builder.Services.AddInfrastructureService();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

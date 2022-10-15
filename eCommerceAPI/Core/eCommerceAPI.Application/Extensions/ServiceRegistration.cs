@@ -15,9 +15,6 @@ namespace eCommerceAPI.Application.Extensions
             services.AddValidatorsFromAssemblyContaining<CreateProductValidator>();
             // MediatR conf.
             services.AddMediatR(Assembly.GetExecutingAssembly());
-
-            // Ioc containers
-            services.AddScoped<ITokenHandler, ITokenHandler>();
             return services;
         }
     }
