@@ -45,11 +45,12 @@ namespace eCommerceAPI.WebApi.Extensions
 
                     ValidAudience = configuration["JwtToken:Audience"],
                     ValidIssuer = configuration["JwtToken:Issuer"],
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtToken:SecurityKey"]))
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtToken:SecurityKey"])),
+                    LifetimeValidator = (notBefore, expires, securityToken, validateParameters) => expires != null ? expires > DateTime.UtcNow : false
                 };
             });
         }
 
-      
+
     }
 }

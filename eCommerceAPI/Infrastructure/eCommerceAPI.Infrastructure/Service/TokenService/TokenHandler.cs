@@ -3,6 +3,7 @@ using eCommerceAPI.Application.Dtos.TokenDtos;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace eCommerceAPI.Infrastructure.Service.TokenService
@@ -40,12 +41,25 @@ namespace eCommerceAPI.Infrastructure.Service.TokenService
                 signingCredentials: signingCredentials
             );
 
-            // Token'i olusturmak
             JwtSecurityTokenHandler tokenHandler = new();
+
+            // Access Token olusturmak
             token.AccessToken = tokenHandler.WriteToken(jwtSecurity);
+
+            // Refresh Token olusturmak
+            token.RefreshToken = CreateRefreshToken();
+
 
             return token;
 
+        }
+
+        public string CreateRefreshToken()
+        {
+            byte[] number = new byte[32];
+            using RandomNumberGenerator randomNumber = RandomNumberGenerator.Create();
+            randomNumber.GetBytes(number);
+            return Convert.ToBase64String(number);
         }
     }
 }

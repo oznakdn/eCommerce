@@ -18,6 +18,7 @@ namespace eCommerceAPI.Application.Features.Commands.AppUserCommands.LoginUser
             _userManager = userManager;
             _signInManager = signInManager;
             _tokenHandler = tokenHandler;
+           
         }
 
         public async Task<LoginUserCommandResponse> Handle(LoginUserCommandRequest request, CancellationToken cancellationToken)
@@ -33,10 +34,28 @@ namespace eCommerceAPI.Application.Features.Commands.AppUserCommands.LoginUser
 
             if(result.Succeeded)
             {
-                TokenDto accessToken = _tokenHandler.CreateAccessToken(5);
-                return new LoginUserCommandSuccessResponse { Token = accessToken};
-            }
+                
+                // Login basarili ise access token ve refresh token'i uretmek
+                var accessToken = _tokenHandler.CreateAccessToken(30);
+                //var refreshToken = _tokenHandler.CreateRefreshToken();
 
+
+                // Uretilen refresh token ve expire suresini veri  tabaninda ilgili kullaniciya ekmelek
+                user.RefreshToken = accessToken.RefreshToken;
+                user.RefreshTokenEndDate = DateTime.UtcNow.AddMinutes(45);
+                await _userManager.UpdateAsync(user);
+
+
+                return new LoginUserCommandSuccessResponse
+                {
+                    Token = new TokenDto
+                    {
+                        AccessToken = accessToken.AccessToken,
+                        RefreshToken = accessToken.RefreshToken,
+                        ExpirationDate = DateTime.UtcNow.AddMinutes(30) 
+                    } 
+                };
+            }
             //return new LoginUserCommandErrorResponse { ResponseMessage = "Username or Password is wrong!"};
             throw new UserAuthenticationException();
 
