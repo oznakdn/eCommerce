@@ -30,7 +30,7 @@ namespace eCommerceAPI.Application.Features.Commands.AppUserCommands.LoginRefres
              */
             if (user != null && user.RefreshTokenEndDate > DateTime.UtcNow)
             {
-                var accessToken = _tokenHandler.CreateAccessToken(30);
+                var accessToken = _tokenHandler.CreateAccessToken(30,user);
                 user.RefreshToken = accessToken.RefreshToken;
                 user.RefreshTokenEndDate = DateTime.UtcNow.AddMinutes(45);
                 await _userManager.UpdateAsync(user);

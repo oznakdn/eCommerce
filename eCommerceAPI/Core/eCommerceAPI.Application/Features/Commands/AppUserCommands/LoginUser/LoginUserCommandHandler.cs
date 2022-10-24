@@ -36,7 +36,7 @@ namespace eCommerceAPI.Application.Features.Commands.AppUserCommands.LoginUser
             {
                 
                 // Login basarili ise access token ve refresh token'i uretmek
-                var accessToken = _tokenHandler.CreateAccessToken(30);
+                var accessToken = _tokenHandler.CreateAccessToken(30,user);
                 //var refreshToken = _tokenHandler.CreateRefreshToken();
 
 

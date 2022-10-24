@@ -1,8 +1,10 @@
 ﻿using eCommerceAPI.Application.Abstractions.Token;
 using eCommerceAPI.Application.Dtos.TokenDtos;
+using eCommerceAPI.Domain.Entities.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -17,7 +19,7 @@ namespace eCommerceAPI.Infrastructure.Service.TokenService
             _configuration = configuration;
         }
 
-        public TokenDto CreateAccessToken(int expireMinute)
+        public TokenDto CreateAccessToken(int expireMinute, AppUser user)
         {
             // Geri dondurulecek nesne ornegi olusturmak
             TokenDto token = new();
@@ -38,7 +40,12 @@ namespace eCommerceAPI.Infrastructure.Service.TokenService
                 issuer: _configuration["JwtToken:Issuer"],
                 expires: token.ExpirationDate,
                 notBefore: DateTime.UtcNow,
-                signingCredentials: signingCredentials
+                signingCredentials: signingCredentials,
+                claims:new List<Claim>
+                {
+                    new Claim(ClaimTypes.Name,user.UserName)
+                }
+
             );
 
             JwtSecurityTokenHandler tokenHandler = new();
