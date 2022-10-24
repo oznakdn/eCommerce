@@ -1,6 +1,5 @@
 ﻿using eCommerceAPI.Domain.Entities.Identity;
 using eCommerceAPI.Persistence.Contexts;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -49,6 +48,8 @@ namespace eCommerceAPI.WebApi.Extensions
                     LifetimeValidator = (notBefore, expires, securityToken, validateParameters) => expires != null ? expires > DateTime.UtcNow : false
                 };
             });
+
+
         }
 
 
